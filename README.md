@@ -88,7 +88,7 @@ This skill is designed to work with Claude Skills. Follow these steps to use it 
 
 ### Prerequisites
 
-- Claude account (free, Pro, Max, Team, or Enterprise plan)
+- Claude account ( Pro, Max, Team, or Enterprise plan)
 - Code execution enabled in Claude settings
 - Zyte API key (set as `ZYTE_API_KEY` environment variable)
 
