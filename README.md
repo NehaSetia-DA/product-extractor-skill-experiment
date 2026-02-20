@@ -82,29 +82,80 @@ product-extractor-skill-experiment/
 └── .gitattributes           # Git attributes configuration
 ```
 
-## How It Works
+## Using with Claude
 
-1. The script sends a POST request to Zyte API's extract endpoint
-2. Zyte API renders the page using a browser and extracts product data
-3. The extracted product information is returned as JSON
-4. The script prints the product data and saves the browser HTML for reference
+This skill is designed to work with Claude Skills. Follow these steps to use it with Claude:
+
+### Prerequisites
+
+- Claude account (free, Pro, Max, Team, or Enterprise plan)
+- Code execution enabled in Claude settings
+- Zyte API key (set as `ZYTE_API_KEY` environment variable)
+
+### Step 1: Package the Skill
+
+1. Ensure your folder structure matches the project structure shown above
+2. Create a ZIP file of the entire folder
+3. **Important:** The ZIP should contain the skill folder as its root (not files directly in the ZIP root)
+
+**Correct structure:**
+```
+product-extractor-skill.zip
+ └── product-extractor-skill/
+     ├── SKILL.md
+     └── scripts/
+         └── fetch_price.py
+```
+
+**Incorrect structure:**
+```
+product-extractor-skill.zip
+ ├── SKILL.md
+ └── scripts/
+     └── fetch_price.py
+```
+
+### Step 2: Upload to Claude
+
+1. Open Claude and go to **Settings > Capabilities**
+2. Navigate to the Skills section
+3. Click **Add Skill** or **Upload Skill**
+4. Select your ZIP file (`product-extractor-skill.zip`)
+5. Claude will validate and load your skill
+
+### Step 3: Enable the Skill
+
+1. After uploading, ensure the skill is enabled in **Settings > Capabilities**
+2. The skill will appear in your list of available skills
+
+### Step 4: Use the Skill
+
+Simply ask Claude questions that should trigger the skill. For example:
+
+- "What's the price of this product: https://example.com/product"
+- "Can you check the availability and price for this URL: https://example.com/product"
+- "Get me the product details from this link: https://example.com/product"
+
+Claude will automatically:
+1. **Detect** when you provide a product URL and ask for details
+2. **Execute** the Python script with your Zyte API key and the product URL
+3. **Process** the JSON output and present it in a clean, readable format
+4. **Fall back** to reading `browser_html.html` if the JSON is incomplete
+
+### Testing Your Skill
+
+After uploading:
+1. Try several different prompts that should trigger the skill
+2. Review Claude's thinking to confirm it's loading the skill
+3. If Claude isn't using it when expected, iterate on the description in `SKILL.md`
+
+For more details on skill creation, see the [official Claude Skills documentation](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
 
 ## Requirements
 
 - Python 3.x
-- `requests` library (`pip install requests`)
+- `requests` library (`pip install requests`) - Claude will install this automatically
 - Valid Zyte API key set in `ZYTE_API_KEY` environment variable
-
-## Integration with Claude Skills
-
-This skill is designed to work with Claude Skills. When a user provides a product URL, the skill:
-
-1. **Triggers** when the user asks for product details (price, stock, description)
-2. **Executes** the Python script with the Zyte API key and product URL
-3. **Processes** the JSON output and presents it in a clean format
-4. **Falls back** to reading `browser_html.html` if JSON is incomplete
-
-See `SKILL.md` for detailed integration instructions.
 
 ## Error Handling
 
