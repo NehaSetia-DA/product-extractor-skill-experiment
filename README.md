@@ -51,12 +51,12 @@ set ZYTE_API_KEY=your-api-key-here
 Run the script with your Zyte API key and product URL:
 
 ```bash
-python scripts/fetch_price.py $ZYTE_API_KEY "https://example.com/product"
+python scripts/fetch_product.py $ZYTE_API_KEY "https://example.com/product"
 ```
 
 Or with the API key directly:
 ```bash
-python scripts/fetch_price.py "your-api-key" "https://example.com/product"
+python scripts/fetch_product.py "your-api-key" "https://example.com/product"
 ```
 
 ### Output
@@ -68,7 +68,7 @@ The script will:
 ### Example
 
 ```bash
-python scripts/fetch_price.py $ZYTE_API_KEY "https://www.amazon.com/dp/B08N5WRWNW"
+python scripts/fetch_product.py $ZYTE_API_KEY "https://www.amazon.com/dp/B08N5WRWNW"
 ```
 
 ## Project Structure
@@ -78,7 +78,7 @@ product-extractor-skill-experiment/
 ├── README.md                 # This file
 ├── SKILL.md                  # Skill documentation for Claude
 ├── scripts/
-│   └── fetch_price.py       # Main script for fetching product data
+│   └── fetch_product.py       # Main script for fetching product data
 └── .gitattributes           # Git attributes configuration
 ```
 
@@ -104,7 +104,7 @@ product-extractor-skill.zip
  └── product-extractor-skill/
      ├── SKILL.md
      └── scripts/
-         └── fetch_price.py
+         └── fetch_product.py
 ```
 
 **Incorrect structure:**
@@ -112,7 +112,7 @@ product-extractor-skill.zip
 product-extractor-skill.zip
  ├── SKILL.md
  └── scripts/
-     └── fetch_price.py
+     └── fetch_product.py
 ```
 
 ### Step 2: Upload to Claude

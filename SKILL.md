@@ -7,10 +7,10 @@ description: Extracts structured product data (price, currency, availability) fr
 
 ## Instructions
 1.  **Trigger:** Use this skill when the user provides a product URL and asks for details (price, stock, description).
-2.  **Execution:** Run the python script `scripts/fetch_price.py` with two arguments:
+2.  **Execution:** Run the python script `scripts/fetch_product.py` with two arguments:
     *   Argument 1: The Zyte API Key (Retrieve this from the environment variable `ZYTE_API_KEY`).
     *   Argument 2: The Product URL provided by the user.
-    *   *Command Example:* `python scripts/fetch_price.py $ZYTE_API_KEY "https://example.com/product"`
+    *   *Command Example:* `python scripts/fetch_product.py $ZYTE_API_KEY "https://example.com/product"`
 3.  **Output Processing:** 
     *   The script prints a JSON object containing the product details.
     *   Present this data to the user in a clean summary table.

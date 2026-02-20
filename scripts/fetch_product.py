@@ -22,7 +22,7 @@ def fetch_product_data(url: str, api_key: str) -> None:
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python fetch_price.py <api_key> <product_url>")
+        print("Usage: python fetch_product.py <api_key> <product_url>")
         sys.exit(1)
     
     api_key = sys.argv[1]
