@@ -68,7 +68,7 @@ The script will:
 ### Example
 
 ```bash
-python scripts/fetch_product.py $ZYTE_API_KEY "https://www.amazon.com/dp/B08N5WRWNW"
+python scripts/fetch_product.py $ZYTE_API_KEY "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
 ```
 
 ## Project Structure
